@@ -6,29 +6,33 @@
 /*   By: fatkeski <fatkeski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 21:04:35 by fatkeski          #+#    #+#             */
-/*   Updated: 2025/07/29 15:21:50 by fatkeski         ###   ########.fr       */
+/*   Updated: 2025/10/29 08:34:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vect2.hpp"
-
+#include <iostream>
+#include <ostream>
+#include <exception>
 int main()
 {
-	vect2 v1; // 0, 0
-	vect2 v2(1, 2); // 1, 2
-	const vect2 v3(v2); // 1, 2
-	vect2 v4 = v2; // 1, 2
+	try {
+	Vect2 v1; // 0, 0
+	Vect2 v2(1, 2); // 1, 2
+	const Vect2 v3(v2); // 1, 2
+	Vect2 v4 = v2; // 1, 2
 
 	std::cout << "v1: " << v1 << std::endl;
 	std::cout << "v1: " << "{" << v1[0] << ", " << v1[1] << "}" << std::endl;
 	std::cout << "v2: " << v2 << std::endl;
 	std::cout << "v3: " << v3 << std::endl;
 	std::cout << "v4: " << v4 << std::endl;
-	std::cout << v4++ << std::endl; // 2, 3
-	std::cout << ++v4 << std::endl; // 3, 4
-	std::cout << v4-- << std::endl; // 2, 3
-	std::cout << --v4 << std::endl; // 1, 2
-
+	
+	int i4= 1;
+	std::cout << v4++ << " " << i4++ << std::endl; // 2, 3
+	std::cout << ++v4 << " " << ++i4 << std::endl; // 3, 4
+	std::cout << v4-- << " " << i4-- << std::endl; // 2, 3
+	std::cout << --v4 << " " << --i4 << std::endl; // 1, 2
 
 	v2 += v3; // 2, 4
 	v1 -= v2; // -2, -4
@@ -37,11 +41,14 @@ int main()
 	v2 += v2 += v3; // 20, 40
 	v1 *= 42; // -84, -168
 	v1 = v1 - v1 + v1;
-
 	std::cout << "v1: " << v1 << std::endl;
 	std::cout << "v2: " << v2 << std::endl;
-	std::cout << "-v2: " << -v2 << std::endl;
-	std::cout << "v1[1]: " << v1[1] << std::endl;
+	v1 += 5;
+	v2-= 5;
+	std::cout << "v1: " << v1 << std::endl;
+	std::cout << "v2: " << v2 << std::endl;
+  	std::cout << "-v2: " << -v2 << std::endl;
+  	std::cout << "v1[1]: " << v1[1] << std::endl;
 	v1[1] = 12;
 	std::cout << "v1[1]: " << v1[1] << std::endl;
 	std::cout << "v3[1]: " << v3[1] << std::endl;
@@ -49,6 +56,9 @@ int main()
 	std::cout << "v1 == v1: " << (v1 == v1) << std::endl;
 	std::cout << "v1 != v3: " << (v1 != v3) << std::endl;
 	std::cout << "v1 != v1: " << (v1 != v1) << std::endl;
-
+	std::cout << "v3[4]: " << v3[4] << std::endl;
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }
