@@ -23,7 +23,7 @@ classDiagram
   class Searchable_tree_bag
   class Set
   %% plot Set after Searchable_tree_bag
-  Searchable_tree_bag --> Set
+  Searchable_array_bag --> Set
   Set : -Searchable_bag *bag
   Set : +insert(int)
   Set : +insert(int *, int)
