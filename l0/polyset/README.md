@@ -13,6 +13,27 @@ Declare int intems_to_insert[] = {1,2,3,4}
 
 ## Define headers.
 searchable bags inherit from two clases.
+```mermaid
+classDiagram
+  class Bag
+  class Array_bag
+  class Tree_bag
+  class Searchable_bag
+  class Searchable_array_bag
+  class Searchable_tree_bag
+  class Set
+  Animal <|-- Dog
+  Animal <|-- Cat
+  Bag <|-- Array_bag
+  Bag <|-- Tree_bag
+  Bag <|-- Searchable_bag
+  Searchable_bag <|-- Searchable_tree_bag
+  Searchable_bag <|-- Searchable_array_bag
+  Tree_bag <|-- Searchable_tree_bag
+  Array_bag <|-- Searchable_array_bag
+  Set *-- Searchable_bag
+```
+
 
 
 ```c++
