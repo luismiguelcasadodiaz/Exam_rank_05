@@ -16,11 +16,17 @@ searchable bags inherit from two clases.
 ```mermaid
 classDiagram
   class Bag
+  Bag : +virtual insert(int)
+  Bag : +insert(int *, int)
+  Bag : +print()
+  Bag : +clear()
   class Array_bag
   class Tree_bag
   class Searchable_bag
   class Searchable_array_bag
+  Searchable_array_bag : +has(int)
   class Searchable_tree_bag
+  Searchable_tree_bag : +has(int)
   class Set
   Set : -Searchable_bag *bag
   Set : +insert(int)
