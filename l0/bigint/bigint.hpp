@@ -24,6 +24,19 @@ class bigint
 
 		bigint & operator++( void );
 		bigint operator++( int );
+
+		bigint & operator<<=(int n);
+		bigint & operator>>=(int n);
+		bigint & operator>>=(bigint const & n);
+		bigint operator<<(int n) const;
+		bigint operator>>(int n) const;
+		bool operator>(bigint const & rhs) const;
+		bool operator>=(bigint const & rhs) const;
+		bool operator<(bigint const & rhs) const;
+		bool operator<=(bigint const & rhs) const;
+		bool operator==(bigint const & rhs) const;
+		bool operator!=(bigint const & rhs) const;
+
 };
 
 std::ostream & operator<<( std::ostream & o, bigint const & obj);

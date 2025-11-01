@@ -94,6 +94,103 @@ bigint bigint::operator++( int )
 	++(*this);
 	return result;
 }
+bigint & bigint::operator<<=(int n)
+{
+	for (int i = n; 0 < i; i--) {this->s.push_back('0'); }
+	return *this;
+}
+bigint & bigint::operator>>=(int n)
+{
+	this->s.erase(this->s.size() - n);
+	return *this;
+}
+bigint & bigint::operator>>=(bigint const & n)
+{
+	std::stringstream ss(n.get_s());
+	int n_num;
+	ss >> n_num ;
+	this->s.erase(this->s.size() - n_num);
+	return *this;
+}
+bigint bigint::operator<<(int n) const
+{
+	bigint result(*this);
+	result <<= n;
+	return result;
+}
+bigint bigint::operator>>(int n) const
+{
+	bigint result(*this);
+	result >>= n;
+	return result;
+}
+bool bigint::operator>(bigint const & rhs) const
+{
+	if ( this->s.size() > rhs.s.size() )
+	{
+		return true;
+	} else if ( this->s.size() < rhs.s.size() )
+	{
+		return false;
+	} else {
+		for (size_t i = 0; i < this->s.size() ; i++)
+		{
+			if ( this->s[i] < rhs.s[i] )
+			{
+				return false;
+			} else if ( this->s[i] > rhs.s[i] ) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+}
+bool bigint::operator>=(bigint const & rhs) const
+{
+	return !( *this < rhs );
+}
+bool bigint::operator<(bigint const & rhs) const
+{
+	if ( this->s.size() < rhs.s.size() )
+	{
+		return true;
+	} else if ( this->s.size() > rhs.s.size() )
+	{
+		return false;
+	} else {
+		for (size_t i = 0; i < this->s.size() ; i++)
+		{
+			if ( this->s[i] > rhs.s[i] )
+			{
+				return false;
+			} else if ( this->s[i] < rhs.s[i] ) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+}
+bool bigint::operator<=(bigint const & rhs) const
+{
+	return !( *this > rhs );
+}
+bool bigint::operator==(bigint const & rhs) const
+{
+	if (this->s.size() != rhs.s.size())
+	{
+		return false;
+	} else {
+		for (size_t i = 0; i < this->s.size(); i++)
+			if ( this->s[i] != rhs.s[i] ) { return false ; }
+		return true;
+	}
+}
+bool bigint::operator!=(bigint const & rhs) const
+{
+	return ( !(*this == rhs)  );
+}
 std::ostream & operator<<( std::ostream & o, bigint const & obj)
 {
 	o << obj.get_s();
