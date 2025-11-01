@@ -17,12 +17,25 @@ searchable bags inherit from two clases.
 classDiagram
   class Bag
   Bag : +virtual insert(int)
-  Bag : +insert(int *, int)
-  Bag : +print()
-  Bag : +clear()
+  Bag : +virtual insert(int *, int)
+  Bag : +virtual print()
+  Bag : +virtual clear()
   class Array_bag
+  Array_Bag : #int *data
+  Array_Bag : #int size
+  Array_Bag : +insert(int)
+  Array_Bag : +insert(int *, int)
+  Array_Bag : +print()
+  Array_Bag : +clear()
   class Tree_bag
+  Tree_Bag : #int *data
+  Tree_Bag : #int size
+  Tree_Bag : +insert(int)
+  Tree_Bag : +insert(int *, int)
+  Tree_Bag : +print()
+  Tree_Bag : +clear()
   class Searchable_bag
+  Searchable_array_bag : +virtual has(int)
   class Searchable_array_bag
   Searchable_array_bag : +has(int)
   class Searchable_tree_bag
