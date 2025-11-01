@@ -1,5 +1,6 @@
 #include "bigint.hpp"
 #include <iostream>
+#include <limits>
 
 int main()
 {
@@ -59,6 +60,14 @@ int main()
     std::cout << "(n23 <=  n21) = " << (n23 <= n21) << std::endl;
     std::cout << "(n23 >   n21) = " << (n23 >  n21) << std::endl;
     std::cout << "(n23 >=  n21) = " << (n23 >= n21) << std::endl;
+
+	bigint max(std::numeric_limits<unsigned int>::max());
+	bigint zero(0);
+	for (int i = 0; i <= 1000; i++)
+	{
+		std::cout << zero << std::endl;
+		zero +=max;
+	}
 
 	return 0;
 }
