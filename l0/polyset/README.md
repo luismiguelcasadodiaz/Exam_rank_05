@@ -20,44 +20,44 @@ classDiagram
   Bag : +virtual insert(int *, int)
   Bag : +virtual print()
   Bag : +virtual clear()
-  class Searchable_bag
-  Searchable_bag : +virtual has(int)
-  class Array_bag
+  class Searchable_Bag
+  Searchable_Bag : +virtual has(int)
+  class Array_Bag
   Array_Bag : #int *data
   Array_Bag : #int size
   Array_Bag : +insert(int)
   Array_Bag : +insert(int *, int)
   Array_Bag : +print()
   Array_Bag : +clear()
-  class Tree_bag
+  class Tree_Bag
   Tree_Bag : #int *data
   Tree_Bag : #int size
   Tree_Bag : +insert(int)
   Tree_Bag : +insert(int *, int)
   Tree_Bag : +print()
   Tree_Bag : +clear()
-  Bag <|-- Array_bag
-  Bag <|-- Tree_bag
-  Bag <|-- Searchable_bag
-  class Searchable_array_bag
-  Searchable_array_bag : +has(int)
-  class Searchable_tree_bag
-  Searchable_tree_bag : +has(int)
+  Bag <|-- Array_Bag
+  Bag <|-- Tree_Bag
+  Bag <|-- Searchable_Bag
+  class Searchable_Array_Bag
+  Searchable_Array_Bag : +has(int)
+  class Searchable_Tree_Bag
+  Searchable_Tree_Bag : +has(int)
   class Set
-  Set : -Searchable_bag *bag
+  Set : -Searchable_Bag *bag
   Set : +insert(int)
   Set : +insert(int *, int)
   Set : +print()
   Set : +clear()
   Set : +has(int)
-  Bag <|-- Array_bag
-  Bag <|-- Tree_bag
-  Bag <|-- Searchable_bag
-  Searchable_bag <|-- Searchable_tree_bag
-  Searchable_bag <|-- Searchable_array_bag
-  Tree_bag <|-- Searchable_tree_bag
-  Array_bag <|-- Searchable_array_bag
-  Set *-- Searchable_bag
+  Bag <|-- Array_Bag
+  Bag <|-- Tree_Bag
+  Bag <|-- Searchable_Bag
+  Searchable_Bag <|-- Searchable_Tree_Bag
+  Searchable_Bag <|-- Searchable_Array_Bag
+  Tree_Bag <|-- Searchable_Tree_Bag
+  Array_Bag <|-- Searchable_Array_Bag
+  Set *-- Searchable_Bag
   %% This is a comment
 ```
 
