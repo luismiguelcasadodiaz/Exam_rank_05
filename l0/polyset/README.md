@@ -20,6 +20,8 @@ classDiagram
   Bag : +virtual insert(int *, int)
   Bag : +virtual print()
   Bag : +virtual clear()
+  class Searchable_bag
+  Searchable_bag : +virtual has(int)
   class Array_bag
   Array_Bag : #int *data
   Array_Bag : #int size
@@ -34,8 +36,9 @@ classDiagram
   Tree_Bag : +insert(int *, int)
   Tree_Bag : +print()
   Tree_Bag : +clear()
-  class Searchable_bag
-  Searchable_array_bag : +virtual has(int)
+  Bag <|-- Array_bag
+  Bag <|-- Tree_bag
+  Bag <|-- Searchable_bag
   class Searchable_array_bag
   Searchable_array_bag : +has(int)
   class Searchable_tree_bag
