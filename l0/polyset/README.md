@@ -22,8 +22,12 @@ classDiagram
   class Searchable_array_bag
   class Searchable_tree_bag
   class Set
-  Animal <|-- Dog
-  Animal <|-- Cat
+  Set : -Searchable_bag *bag
+  Set : +insert(int)
+  Set : +insert(int *, int)
+  Set : +print()
+  Set : +clear()
+  Set : +has(int)
   Bag <|-- Array_bag
   Bag <|-- Tree_bag
   Bag <|-- Searchable_bag
