@@ -27,23 +27,27 @@ class Vect2
 		Vect2 & operator--( void ) ; //--obj
 		Vect2 operator++( int ) ; // obj++
 		Vect2 operator--( int ) ; // obj--
-		Vect2 & operator-=( int dec ) ; 
-		Vect2 & operator+=( int inc ) ; 
-		Vect2 & operator*=( int mul ) ; 
-		Vect2 & operator/=( int div ) ; 
+
    		Vect2 & operator-=(Vect2 const & other ) ;
 		Vect2 & operator+=(Vect2 const & other ) ;
 		Vect2 & operator*=(Vect2 const & other ) ;
 		Vect2 & operator/=(Vect2 const & other ) ;
-
 		Vect2  operator+(Vect2 const & a) const ;
 		Vect2  operator-(Vect2 const & a) const ;
 		Vect2  operator*(Vect2 const & a) const ;
 		Vect2  operator/(Vect2 const & a) const ;
+
+
+		Vect2 & operator-=( int dec ) ; 
+		Vect2 & operator+=( int inc ) ; 
+		Vect2 & operator*=( int mul ) ; 
+		Vect2 & operator/=( int div ) ; 
 		Vect2  operator+(int n) const ;
 		Vect2  operator-(int n) const ;
 		Vect2  operator*(int n) const ;
 		Vect2  operator/(int n) const ;
+
+
 		Vect2  operator-( void ) const ;
 
 		bool   operator==(Vect2 const & other) const ;
