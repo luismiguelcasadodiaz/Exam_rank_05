@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include "matrix.h"
+
+
 void read_seed(char * seed, size_t max_bytes)
 {
 	size_t bytes_read;
@@ -15,32 +17,37 @@ void read_seed(char * seed, size_t max_bytes)
 			seed[len - 1] = '\0';
 	} else if (bytes_read == 0)
 	{
-		printf("No seed available (EOF)");
+		msg("No seed available (EOF)");
 	} else 
 	{
-		perror("Error reading stdin");
+		msg("Error reading stdin");
 		exit (3);
 	}
 }
 int main( int argc, char ** argv)
 {
 	Matrix *m;
+	Matrix *new;
 	char seed[1024];
 	int i;
 	if (argc != 4)
 	{
-		printf("Usage ./life width height iterations\n");
+		msg("Usage ./life width height iterations\n");
 		return (0);
 	}
 	read_seed(seed, sizeof(seed));
 	m = M_create(atoi(argv[1]), atoi(argv[2]), seed);
-	i = 1;
-	while (m != NULL && i < atoi(argv[3]) )
+	i = 0;
+	while (m != NULL && i <= atoi(argv[3]) )
 	{
+		msg("iteration\n");
 		M_print(m);
+		new = M_generation(m);
+		M_free(m);
+		m = new;
 		i++;
-		printf("%s\n",seed);
 	}
+	M_free(m);
 	return (0);
 }
 
